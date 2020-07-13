@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<image src="{{url_for('static', filename='images/movie3.jpg')}}"
+</head>
+
+<body>
+
+ <div class="login">
+	<h1>Movie Recommendation System</h1>
+
+     
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Movie_Name" placeholder="Movie Name" required="required" />
+    	
+        <button type="submit" class="btn btn-primary btn-block btn-large">Recommend</button>
+    </form>
+
+   <br>
+   <br>
+   {{ "The Top 5 Recommended Movies are:" }}
+
+   <ol> 
+    {%for i in range(0, length)%} 
+  
+        <li>{{prediction[i]}}</li> 
+        
+        {%endfor%} 
+  
+    </ol> 
+   
+ </div>
+
+
+
+</body>
+</html>
